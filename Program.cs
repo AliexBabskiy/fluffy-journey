@@ -13,7 +13,7 @@ class Calculator
                 break;
             }
         }
-        
+
         object choice;
         int result;
 
@@ -44,16 +44,16 @@ class Calculator
             {
                 case 1:
                     Console.WriteLine("Игра \"Угадай число\"\n");
-                    Ugaday ();
+                    Ugaday();
                     break;
                 case 2:
                     Console.WriteLine("Таблица умножения:\n");
-                    Umnoz ();
-                    
+                    Umnoz();
+
                     break;
                 case 3:
                     Console.WriteLine("Вывод делителей числа\n");
-                    Delit ();
+                    Delit();
                     break;
                 case 4:
                     Console.WriteLine("Завершение работы нажмите Escape.");
@@ -88,12 +88,12 @@ class Calculator
             if (num > n)
             {
                 Console.WriteLine("Взять меньше");
-                
+
             }
             if (num < n)
             {
                 Console.WriteLine("Взять больше");
-                
+
             }
             if (num == n)
             {
@@ -105,21 +105,21 @@ class Calculator
     static void Umnoz()
     {
         int i;
-        int [,] umn = new int [9, 9] { { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 }, { 1, 2 , 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 } };
+        int[,] umn = new int[9, 9] { { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, { 1, 2, 3, 4, 5, 6, 7, 8, 9 } };
 
         for (int m = 0; m < umn.GetLength(0); m++)
         {
             i = 1 + m;
             for (int n = 0; n < umn.GetLength(1); n++)
             {
-                Console.Write(umn[m, n]*i + "\t");
+                Console.Write(umn[m, n] * i + "\t");
             }
             Console.WriteLine("\n");
         }
     }
     static void Delit()
     {
-        
+
         Console.WriteLine("Введите число");
         int num = Convert.ToInt32(Console.ReadLine());
 
@@ -128,16 +128,16 @@ class Calculator
 
         do
         {
-            if ( i > num)
+            if ((num % i) == 0) // остаток от числа равен нулю
             {
                 list.Add(num / i);
-                i++;
-                break;
             }
-            
+            i++;
         }
-        while (i > num);
-        int del = list.Count;
-        Console.WriteLine(list.Count);
+        while (i <= num);
+        foreach (var item in list)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
